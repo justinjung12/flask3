@@ -4,4 +4,4 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template('schoolapp.html',currentalerts = 'hi')
+    return render_template('schoolapp.html',currentalert = 'hi')
