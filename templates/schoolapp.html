@@ -524,62 +524,7 @@
         document.querySelector('.vacationdday').innerText = getvacationdday()
         document.querySelector('.competitiondday').innerText = getcompetitiondday()
 
-        let partner_seat = []
-        $.ajax({
-            type: 'POST',
-            async: false,
-            url: 'https://port-0-flask3-am952lltijqasv.sel5.cloudtype.app/seats/',//데이터를 주고받을 파일 주소 입력,
-            data: {
-                use: 'show'
-            },//보내는 데이터,
-            dataType: 'json',
-            success: function (result) {
-                partner_seat = result
-            },
-            error: function () {
-                //에러가 났을 경우 실행시킬 코드
-            }
-        })
-        var canvas = document.getElementById("myCanvas");
-        var ctx = canvas.getContext("2d");
 
-        // 글자 스타일 설정
-        ctx.font = "10px bold";
-        ctx.fillStyle = "black";
-
-        // 글자 쓰기
-        ctx.fillText("1분단", 20, 50);
-        ctx.fillText("2분단", 110, 50);
-        ctx.fillText("3분단", 200, 50);
-        ctx.fillText("4분단", 310, 50);
-
-
-        var x = 10
-        var y = 70
-        for (var i = 0; i < 16; i++) {
-
-            var partner1 = partner_seat[i][0]
-            var partner2 = partner_seat[i][1]
-
-
-
-            if (i == 4) {
-                x = 100
-                y = 70
-            }
-            if (i == 8) {
-                x = 190
-                y = 70
-            }
-            if(i == 12){
-                x = 300
-                y = 70
-            }
-            ctx.fillText(partner1, x, y);
-            ctx.fillText(partner2, x + 35, y);
-            y += 20
-
-        }
 
     </script>
 </body>
