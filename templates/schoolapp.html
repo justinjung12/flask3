@@ -262,8 +262,21 @@
             deletebtn.addEventListener('click', deletememo)
             plusmemolocalstorage(memoInput.value)
         })
+        if (JSON.parse(localStorage.getItem('memo')) != null) {
+                JSON.parse(localStorage.getItem('memo')).foreach((res)=>{
+                    const memo = document.createElement('div')
+                    memo.innerText = res
+                    const deletebtn = document.createElement('button')
+                    deletebtn.classList = 'deletebtn'
+                    deletebtn.innerText = 'delete'
+                    memo.appendChild(deletebtn)
+                    container.appendChild(memo)
+                    deletebtn.addEventListener('click', deletememo)
+                    plusmemolocalstorage(memoInput.value)
+                })
+        }
 
-        console
+        
         function extractNumbersFromString(inputString) {
             // 입력 문자열에서 숫자만 추출
             var numbers = inputString.match(/\d+/g);
